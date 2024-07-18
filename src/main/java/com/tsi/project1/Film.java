@@ -5,6 +5,9 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.time.Year;
 
 @Entity
 @Table(name = "film")
@@ -26,11 +29,13 @@ public class Film {
 
     @Column(name = "release_year")
     @Setter
-    private Integer releaseYear;
+    private Year releaseYear;
 
-    @Column(name = "language_id")
+    @ManyToOne
+    @JoinColumn(name = "language_id")
     @Setter
-    private Short languageId;
+    //private Short languageId;
+    private Language languageId;
 
     @Column(name = "original_language_id")
     @Setter
@@ -38,19 +43,19 @@ public class Film {
 
     @Column(name = "rental_duration")
     @Setter
-    private Double rentalDuration;
+    private double rentalDuration;
 
     @Column(name = "rental_rate")
     @Setter
-    private Double rentalRate;
+    private double rentalRate;
 
     @Column(name = "length")
     @Setter
-    private Integer length;
+    private int length;
 
     @Column(name = "replacement_cost")
     @Setter
-    private Double replacementCost;
+    private double replacementCost;
 
     @Column(name = "rating")
     @Setter
@@ -63,6 +68,9 @@ public class Film {
     @Column(name = "last_update")
     @Setter
     private LocalDateTime lastUpdate = LocalDateTime.now();
+
+    @ManyToMany(mappedBy = "films")
+    private List<Actor> cast = new ArrayList<>();
 
 
 }

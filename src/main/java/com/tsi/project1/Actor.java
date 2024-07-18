@@ -1,6 +1,9 @@
 package com.tsi.project1;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -25,6 +28,15 @@ public class Actor {
     @Column(name = "last_update")
     @Setter
     private LocalDateTime lastUpdate = LocalDateTime.now();
+
+    @ManyToMany
+    @JoinTable(
+            name = "film_actor",
+            joinColumns = {@JoinColumn(name = "actor_id")},
+            inverseJoinColumns = {@JoinColumn(name = "film_id")}
+    )
+    private List<Film> films = new ArrayList<>();
+
 
     public Actor () {
 

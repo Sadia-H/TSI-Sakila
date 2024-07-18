@@ -1,8 +1,10 @@
 package com.tsi.project1;
 
-import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -23,7 +25,7 @@ public class ActorController {
     }
 
     @PostMapping
-    public Actor createActor(@RequestBody ActorInput data) {
+    public Actor create(@Validated(ValidationGroup.Create.class) @RequestBody ActorInput data) {
         final var actor = new Actor();
         actor.setFirstName(data.getFirstName());
         actor.setLastName(data.getLastName());
@@ -31,7 +33,7 @@ public class ActorController {
     }
 
     @PutMapping("/{id}")
-    public Actor updateActor(@PathVariable Short id, @RequestBody ActorInput actorInput) {
+    public Actor update( @Validated(ValidationGroup.Update.class) @PathVariable Short id, @RequestBody ActorInput actorInput) {
         Actor existingActor = actorRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Actor not found."));
 
@@ -39,6 +41,22 @@ public class ActorController {
         existingActor.setLastName(actorInput.getLastName());
 
         return actorRepository.save(existingActor);
+    }
+
+    @PatchMapping("/{id}")
+    public Actor patchActor(@PathVariable Short id, @RequestBody ActorInput actorInput) {
+        Actor actor = actorRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Actor not found."));
+
+        if(actorInput.getFirstName() != null) {
+            actor.setFirstName(actorInput.getFirstName());
+        }
+        if (actorInput.getLastName() != null ) {
+            actor.setLastName(actorInput.getLastName());
+        }
+        actor.setLastUpdate(LocalDateTime.now());
+
+        return actorRepository.save(actor);
     }
 
     @DeleteMapping("/{id}")
