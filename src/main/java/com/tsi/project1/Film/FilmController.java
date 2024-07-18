@@ -1,7 +1,7 @@
 package com.tsi.project1.Film;
 
 
-import com.tsi.project1.LanguageRepository;
+import com.tsi.project1.Language.LanguageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

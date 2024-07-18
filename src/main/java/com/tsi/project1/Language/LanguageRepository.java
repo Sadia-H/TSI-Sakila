@@ -1,4 +1,4 @@
-package com.tsi.project1;
+package com.tsi.project1.Language;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
