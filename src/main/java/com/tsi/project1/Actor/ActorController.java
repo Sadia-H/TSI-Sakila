@@ -1,7 +1,9 @@
 package com.tsi.project1.Actor;
 
 import com.tsi.project1.ValidationGroup;
+import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,59 +15,43 @@ import java.util.List;
 public class ActorController {
 
     @Autowired
-    private ActorRepository actorRepository;
+    private ActorService actorService;
+
 
     @GetMapping
     public List<Actor> findAllActors () {
-        return actorRepository.findAll();
+        return actorService.findAllActors();
     }
 
     @GetMapping("/{id}")
     public Actor findActor(@PathVariable Short id) {
-        return actorRepository.findById(id).get();
+        return actorService.findActor(id);
     }
 
     @PostMapping
-    public Actor create(@Validated(ValidationGroup.Create.class) @RequestBody ActorInput data) {
-        final var actor = new Actor();
-        actor.setFirstName(data.getFirstName());
-        actor.setLastName(data.getLastName());
-        return actorRepository.save(actor);
+    @ResponseStatus(HttpStatus.CREATED)
+    public Actor createActor(
+            @Validated(ValidationGroup.Create.class) @RequestBody ActorInput data) {
+            return actorService.createActor(data);
     }
 
     @PutMapping("/{id}")
-    public Actor update( @Validated(ValidationGroup.Update.class) @PathVariable Short id, @RequestBody ActorInput actorInput) {
-        Actor existingActor = actorRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Actor not found."));
-
-        existingActor.setFirstName(actorInput.getFirstName());
-        existingActor.setLastName(actorInput.getLastName());
-
-        return actorRepository.save(existingActor);
+    public Actor updateActor(
+            @Validated(ValidationGroup.Update.class) @PathVariable Short id, @RequestBody ActorInput actorInput) {
+            return actorService.updateActor(id, actorInput);
     }
+
+
 
     @PatchMapping("/{id}")
     public Actor patchActor(@PathVariable Short id, @RequestBody ActorInput actorInput) {
-        Actor actor = actorRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Actor not found."));
-
-        if(actorInput.getFirstName() != null) {
-            actor.setFirstName(actorInput.getFirstName());
-        }
-        if (actorInput.getLastName() != null ) {
-            actor.setLastName(actorInput.getLastName());
-        }
-        actor.setLastUpdate(LocalDateTime.now());
-
-        return actorRepository.save(actor);
+        return actorService.patchActor(id, actorInput);
     }
 
     @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteActor(@PathVariable Short id) {
-      //  actorRepository.deleteById(id);
-        Actor existingActor = actorRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Actor not found."));
-        actorRepository.delete(existingActor);
+        actorService.deleteActor(id);
 
 
 
