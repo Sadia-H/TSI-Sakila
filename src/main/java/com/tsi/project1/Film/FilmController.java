@@ -34,6 +34,18 @@ public class FilmController {
 
         return filmRepository.findById(filmId).get();
     }
+
+    @PostMapping
+    public Film createFilm(@Validated(ValidationGroup.Create.class) @RequestBody FilmInput filmInput) {
+        Film film = new Film();
+        BeanUtils.copyProperties(filmInput, film);
+
+
+        film.setLanguageId(filmInput.getLanguageId());
+
+        film.setLastUpdate(LocalDateTime.now());
+        return filmRepository.save(film);
+    }
 //
 //    @PostMapping
 //    public Film createFilm(@RequestBody Film film) {
@@ -68,17 +80,17 @@ public class FilmController {
 //        return filmRepository.save(film);
 //    }
 
-    @PostMapping
-    public Film createFilm(@Validated(ValidationGroup.Create.class) @RequestBody FilmInput filmInput) {
-        Film film = new Film();
-        BeanUtils.copyProperties(filmInput, film);
-        Language language = languageRepository.findById(filmInput.getLanguageId())
-                .orElseThrow(() -> new IllegalArgumentException("Language not found."));
-        film.setLanguage(language);
-
-        film.setLastUpdate(LocalDateTime.now());
-        return filmRepository.save(film);
-    }
+//    @PostMapping
+//    public Film createFilm(@Validated(ValidationGroup.Create.class) @RequestBody FilmInput filmInput) {
+//        Film film = new Film();
+//        BeanUtils.copyProperties(filmInput, film);
+//        Language language = languageRepository.findById(filmInput.getLanguageId())
+//                .orElseThrow(() -> new IllegalArgumentException("Language not found."));
+//        film.setLanguage(language);
+//
+//        film.setLastUpdate(LocalDateTime.now());
+//        return filmRepository.save(film);
+//    }
 
 //    @PutMapping("/{filmId}")
 //    public Film updateFilm(@PathVariable Short filmId, @RequestBody Film filmData)  {

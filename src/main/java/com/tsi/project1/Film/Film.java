@@ -33,16 +33,24 @@ public class Film {
     @Setter
     private Year releaseYear;
 
-    @ManyToOne
-    @JoinColumn(name = "language_id", nullable = false)
+    @Column(name = "language_id")
     @Setter
-    private Language language;
-    //private Short languageId;
+    private Short languageId;
 
-    @ManyToOne
-    @JoinColumn(name = "original_language_id")
+    @Column(name = "original_language_id")
     @Setter
-    private Language originalLanguageId;
+    private Short originalLanguageId;
+
+//    @ManyToOne
+//    @JoinColumn(name = "language_id", nullable = false)
+//    @Setter
+//    private Language language;
+
+
+//    @ManyToOne
+//    @JoinColumn(name = "original_language_id")
+//    @Setter
+//    private Language originalLanguageId;
 
     @Column(name = "rental_duration")
     @Setter
