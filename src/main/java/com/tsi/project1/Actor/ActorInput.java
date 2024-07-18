@@ -1,10 +1,10 @@
-package com.tsi.project1;
+package com.tsi.project1.Actor;
 
+import com.tsi.project1.ValidationGroup;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+
 //
 @Data
 public class ActorInput {

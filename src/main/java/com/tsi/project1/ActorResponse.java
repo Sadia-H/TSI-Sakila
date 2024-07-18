@@ -1,5 +1,6 @@
 package com.tsi.project1;
 
+import com.tsi.project1.Actor.Actor;
 import lombok.Getter;
 
 import java.util.List;

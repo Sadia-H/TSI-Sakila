@@ -1,5 +1,6 @@
-package com.tsi.project1;
+package com.tsi.project1.Actor;
 
+import com.tsi.project1.ValidationGroup;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;

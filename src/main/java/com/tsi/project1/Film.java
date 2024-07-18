@@ -1,5 +1,6 @@
 package com.tsi.project1;
 
+import com.tsi.project1.Actor.Actor;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
