@@ -34,14 +34,15 @@ public class Film {
     private Year releaseYear;
 
     @ManyToOne
-    @JoinColumn(name = "language_id")
+    @JoinColumn(name = "language_id", nullable = false)
     @Setter
+    private Language language;
     //private Short languageId;
-    private Language languageId;
 
-    @Column(name = "original_language_id")
+    @ManyToOne
+    @JoinColumn(name = "original_language_id")
     @Setter
-    private Short originalLanguageId;
+    private Language originalLanguageId;
 
     @Column(name = "rental_duration")
     @Setter
@@ -75,4 +76,6 @@ public class Film {
     private List<Actor> cast = new ArrayList<>();
 
 
+    public void setLanguage(Language language) {
+    }
 }

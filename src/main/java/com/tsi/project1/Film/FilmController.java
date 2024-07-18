@@ -1,12 +1,17 @@
 package com.tsi.project1.Film;
 
 
+import com.tsi.project1.Language.Language;
 import com.tsi.project1.Language.LanguageRepository;
+import com.tsi.project1.ValidationGroup;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/films")
@@ -20,32 +25,60 @@ public class FilmController {
 
     @GetMapping
     public List<Film> getAllFilms() {
+
         return filmRepository.findAll();
     }
 
     @GetMapping("/{filmId}")
     public Film getFilm(@PathVariable Short filmId) {
+
         return filmRepository.findById(filmId).get();
     }
 //
-    @PostMapping
-    public Film createFilm(@RequestBody Film film) {
-        film.setLastUpdate(LocalDateTime.now());
-        return filmRepository.save(film);
-    }
+//    @PostMapping
+//    public Film createFilm(@RequestBody Film film) {
+//        film.setLastUpdate(LocalDateTime.now());
+//        return filmRepository.save(film);
+//    }
 
 
     //WITH VALIDATION
 //    @PostMapping
-//    public Film create(@Validated(ValidationGroup.Create.class) @RequestBody FilmInput filmInput) {
+//    public Film createFilm(@Validated(ValidationGroup.Create.class) @RequestBody FilmInput filmInput) {
 //        Film film = new Film();
-//        BeanUtils.copyProperties(filmInput, film);
-//       // Language language = languageRepository.findById(filmInput.getLanguageId());
-//       // film.setLanguageId(language);
+//        BeanUtils.copyProperties(filmInput, film, "languageId", "originalLanguageId");
+//        Language language = languageRepository.findById(filmInput.getLanguageId())
+//                .orElseThrow(() -> new IllegalArgumentException("Language not found."));
+//        film.setLanguage(language);
+//
 //
 //        film.setLastUpdate(LocalDateTime.now());
 //        return filmRepository.save(film);
 //    }
+//    @PostMapping
+//    public Film createFilm(@Validated(ValidationGroup.Create.class) @RequestBody FilmInput filmInput) {
+//        Film film = new Film();
+//        BeanUtils.copyProperties(filmInput, film);
+//
+//        Language language = languageRepository.findById(filmInput.getLanguageId())
+//                .orElseThrow(() -> new IllegalArgumentException("Language not found."));
+//        film.setLanguage(language);
+//
+//        film.setLastUpdate(LocalDateTime.now());
+//        return filmRepository.save(film);
+//    }
+
+    @PostMapping
+    public Film createFilm(@Validated(ValidationGroup.Create.class) @RequestBody FilmInput filmInput) {
+        Film film = new Film();
+        BeanUtils.copyProperties(filmInput, film);
+        Language language = languageRepository.findById(filmInput.getLanguageId())
+                .orElseThrow(() -> new IllegalArgumentException("Language not found."));
+        film.setLanguage(language);
+
+        film.setLastUpdate(LocalDateTime.now());
+        return filmRepository.save(film);
+    }
 
 //    @PutMapping("/{filmId}")
 //    public Film updateFilm(@PathVariable Short filmId, @RequestBody Film filmData)  {
