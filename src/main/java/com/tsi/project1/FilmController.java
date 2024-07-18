@@ -30,23 +30,24 @@ public class FilmController {
         return filmRepository.findById(filmId).get();
     }
 //
-//    @PostMapping
-//    public Film createFilm(@RequestBody Film film) {
-//        film.setLastUpdate(LocalDateTime.now());
-//        return filmRepository.save(film);
-//    }
-
-
     @PostMapping
-    public Film create(@Validated(ValidationGroup.Create.class) @RequestBody FilmInput filmInput) {
-        Film film = new Film();
-        BeanUtils.copyProperties(filmInput, film);
-       // Language language = languageRepository.findById(filmInput.getLanguageId());
-       // film.setLanguageId(language);
-
+    public Film createFilm(@RequestBody Film film) {
         film.setLastUpdate(LocalDateTime.now());
         return filmRepository.save(film);
     }
+
+
+    //WITH VALIDATION
+//    @PostMapping
+//    public Film create(@Validated(ValidationGroup.Create.class) @RequestBody FilmInput filmInput) {
+//        Film film = new Film();
+//        BeanUtils.copyProperties(filmInput, film);
+//       // Language language = languageRepository.findById(filmInput.getLanguageId());
+//       // film.setLanguageId(language);
+//
+//        film.setLastUpdate(LocalDateTime.now());
+//        return filmRepository.save(film);
+//    }
 
 //    @PutMapping("/{filmId}")
 //    public Film updateFilm(@PathVariable Short filmId, @RequestBody Film filmData)  {
@@ -67,14 +68,15 @@ public class FilmController {
 //        return filmRepository.save(film);
 //    }
 
-    @PutMapping("/{filmId}")
-    public Film update(@Validated (ValidationGroup.Update.class) @PathVariable Short filmId, @RequestBody FilmInput filmInput) {
-        Film film = filmRepository.findById(filmId)
-                .orElseThrow(() -> new IllegalArgumentException("Film not found."));
-        BeanUtils.copyProperties(filmInput, film, "filmId", "lastUpdate");
-        film.setLastUpdate(LocalDateTime.now());
-        return filmRepository.save(film);
-    }
+    //WITH VALIDATION
+//    @PutMapping("/{filmId}")
+//    public Film update(@Validated (ValidationGroup.Update.class) @PathVariable Short filmId, @RequestBody FilmInput filmInput) {
+//        Film film = filmRepository.findById(filmId)
+//                .orElseThrow(() -> new IllegalArgumentException("Film not found."));
+//        BeanUtils.copyProperties(filmInput, film, "filmId", "lastUpdate");
+//        film.setLastUpdate(LocalDateTime.now());
+//        return filmRepository.save(film);
+//    }
 
 
 

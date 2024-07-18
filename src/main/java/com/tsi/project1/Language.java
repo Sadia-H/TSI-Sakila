@@ -28,9 +28,6 @@ public class Language {
     public Language() {
 
     }
-    public Short getLanguageId() {
-        return languageId;
-    }
 
 
 }
