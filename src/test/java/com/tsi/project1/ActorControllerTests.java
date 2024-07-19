@@ -19,30 +19,34 @@ public class ActorControllerTests {
 
     private ActorController actorController;
 
+
     @BeforeEach
     public void setup () {
         final var mockService = mock(ActorService.class);
 
         final var actor = new Actor((short)1, "PENELOPE", "GUINESS");
-        doReturn(actor).when(mockService).findActor((short)1);
+
         doThrow(new ResponseStatusException(HttpStatus.NOT_FOUND)).when(mockService).findActor(any());
+        doReturn(actor).when(mockService).findActor((short)1);
+        //doThrow(new ResponseStatusException(HttpStatus.NOT_FOUND)).when(mockService).findActor(argThat(id -> id != 1));
+        // doThrow(new ResponseStatusException(HttpStatus.NOT_FOUND)).when(mockService).findActor(any());
 
 //        when(mockService.findActor((short)1)).thenReturn(new Actor());
 //        when(mockService.findActor((short)1)).thenReturn(actor);
         //doNothing().when(mockService).deleteActor();
 
-        //actorController = new ActorController(actor);
+        actorController = new ActorController(mockService);
     }
 
     @Test
-    public void setActorControllerFindActorReturnsAnExistingActor() {
+    public void actorControllerFindActorReturnsAnExistingActor() {
         final var expectedId = (short)1;
-        final var expectedFirstName = "S";
+        final var expectedFirstName = "PENELOPE";
+        final var expectedLastName = "GUINESS";
         final var actual = actorController.findActor((short) 1);
         Assertions.assertEquals(expectedId, actual.getId());
         Assertions.assertEquals(expectedFirstName, actual.getFirstName());
-
-
+        Assertions.assertEquals(expectedLastName, actual.getLastName());
 
     }
 
