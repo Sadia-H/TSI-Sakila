@@ -5,12 +5,14 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Table(name = "actor")
 @Getter
+@AllArgsConstructor
 public class Actor {
 
     @Id
@@ -44,5 +46,10 @@ public class Actor {
     }
 
 
-
+    public Actor(Short id, String firstName, String lastName) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.lastUpdate = LocalDateTime.now();
+    }
 }

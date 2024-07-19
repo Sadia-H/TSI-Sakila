@@ -49,12 +49,12 @@ public class FilmController {
             return filmService.updateFilm(filmId, filmInput);
     }
 
+
+
     @DeleteMapping("/{filmId}")
     public void deleteFilm(@PathVariable Short filmId) {
 
       filmService.deleteFilm(filmId);
-
-
 
     }
 

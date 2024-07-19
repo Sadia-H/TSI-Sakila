@@ -15,7 +15,6 @@ import java.time.LocalDateTime;
 public class Language {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "language_id")
     private Short languageId;
 
@@ -31,14 +30,14 @@ public class Language {
 
     }
 
-    @JsonCreator
-    public Language(@JsonProperty("languageId") Short languageId,
-                    @JsonProperty("name") String name,
-                    @JsonProperty("lastUpdate") LocalDateTime lastUpdate) {
-        this.languageId = languageId;
-        this.name = name;
-        this.lastUpdate = lastUpdate;
-    }
+//    @JsonCreator
+//    public Language(@JsonProperty("languageId") Short languageId,
+//                    @JsonProperty("name") String name,
+//                    @JsonProperty("lastUpdate") LocalDateTime lastUpdate) {
+//        this.languageId = languageId;
+//        this.name = name;
+//        this.lastUpdate = lastUpdate;
+//    }
 
 
 }
