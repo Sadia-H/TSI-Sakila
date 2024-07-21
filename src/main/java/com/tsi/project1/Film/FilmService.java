@@ -30,17 +30,17 @@ public class FilmService {
         return filmRepository.findById(filmId).get();
     }
 
-    @PostMapping
-    public Film createFilm(@Validated(ValidationGroup.Create.class) @RequestBody FilmInput filmInput) {
-        Film film = new Film();
-        BeanUtils.copyProperties(filmInput, film);
-
-
-        film.setLanguageId(filmInput.getLanguageId());
-
-        film.setLastUpdate(LocalDateTime.now());
-        return filmRepository.save(film);
-    }
+//    @PostMapping
+//    public Film createFilm(@Validated(ValidationGroup.Create.class) @RequestBody FilmInput filmInput) {
+//        Film film = new Film();
+//        BeanUtils.copyProperties(filmInput, film);
+//
+//
+//        //film.setLanguageId(filmInput.getLanguageId());
+//
+//        film.setLastUpdate(LocalDateTime.now());
+//        return filmRepository.save(film);
+//    }
 //
 //    @PostMapping
 //    public Film createFilm(@RequestBody Film film) {

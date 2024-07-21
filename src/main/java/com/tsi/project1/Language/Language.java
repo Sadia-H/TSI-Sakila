@@ -22,9 +22,9 @@ public class Language {
     @Setter
     private String name;
 
-    @Column(name = "last_update")
-    @Setter
-    private LocalDateTime lastUpdate = LocalDateTime.now();
+//    @Column(name = "last_update")
+//    @Setter
+//    private LocalDateTime lastUpdate = LocalDateTime.now();
 //
     public Language() {
 

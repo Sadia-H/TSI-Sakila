@@ -33,9 +33,13 @@ public class Film {
     @Setter
     private Year releaseYear;
 
-    @Column(name = "language_id")
-    @Setter
-    private Short languageId;
+//    @Column(name = "language_id")
+//    @Setter
+//    private Short languageId;
+
+    @ManyToOne
+    @JoinColumn(name = "language_id")
+    private Language language;
 
     @Column(name = "original_language_id")
     @Setter
