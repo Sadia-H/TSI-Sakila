@@ -36,12 +36,15 @@ public class FilmController {
         return filmService.getFilm(filmId);
     }
 
-//    @PostMapping
-//    @ResponseStatus(HttpStatus.CREATED)
-//    public Film createFilm(
-//            @Validated(ValidationGroup.Create.class) @RequestBody FilmInput filmInput) {
-//            return filmService.createFilm(filmInput);
-//    }
+
+
+
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public Film createFilm(
+            @Validated(ValidationGroup.Create.class) @RequestBody FilmInput filmInput) {
+            return filmService.createFilm(filmInput);
+    }
 
     @PutMapping("/{filmId}")
     public Film updateFilm(

@@ -1,5 +1,6 @@
 package com.tsi.project1.Film;
 
+import com.tsi.project1.Language.Language;
 import com.tsi.project1.ValidationGroup;
 import jakarta.validation.constraints.*;
 import lombok.Data;
@@ -21,6 +22,7 @@ public class FilmInput {
 //    private Short languageId;
 
     private Short languageId;
+    private Language language;
 
     private Short originalLanguageId;
 

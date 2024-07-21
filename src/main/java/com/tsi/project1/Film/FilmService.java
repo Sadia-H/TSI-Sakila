@@ -1,10 +1,13 @@
 package com.tsi.project1.Film;
 
 
+import com.tsi.project1.Language.Language;
+import com.tsi.project1.Language.LanguageRepository;
 import com.tsi.project1.ValidationGroup;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.config.ConfigDataResourceNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +22,9 @@ public class FilmService {
     @Autowired
     private FilmRepository filmRepository;
 
+    @Autowired
+    private LanguageRepository languageRepository;
+
     @GetMapping
     public List<Film> getAllFilms() {
         return filmRepository.findAll();
@@ -28,6 +34,28 @@ public class FilmService {
     public Film getFilm(@PathVariable Short filmId) {
 
         return filmRepository.findById(filmId).get();
+    }
+
+    @PostMapping
+    public Film createFilm(@RequestBody FilmInput filmInput) {
+        Language language = languageRepository.findById(filmInput.getLanguageId())
+                .orElseThrow(() -> new IllegalArgumentException("Language not found."));
+
+        Film film = new Film();
+        film.setTitle(filmInput.getTitle());
+        film.setTitle(filmInput.getTitle());
+        film.setDescription(filmInput.getDescription());
+        film.setReleaseYear(filmInput.getReleaseYear());
+        film.setLanguage(language);
+        film.setOriginalLanguageId(filmInput.getOriginalLanguageId());
+        film.setRentalRate(filmInput.getRentalRate());
+        film.setLength(filmInput.getLength());
+        film.setReplacementCost(filmInput.getReplacementCost());
+        film.setRating(filmInput.getRating());
+        film.setSpecialFeatures(filmInput.getSpecialFeatures());
+        film.setLastUpdate(LocalDateTime.now());
+
+        return filmRepository.save(film);
     }
 
 //    @PostMapping

@@ -39,6 +39,7 @@ public class Film {
 
     @ManyToOne
     @JoinColumn(name = "language_id")
+    @Setter
     private Language language;
 
     @Column(name = "original_language_id")
@@ -88,6 +89,7 @@ public class Film {
     private List<Actor> cast = new ArrayList<>();
 
 
-    public void setLanguage(Language language) {
-    }
+
+//    public void setLanguage(Language language) {
+//    }
 }
