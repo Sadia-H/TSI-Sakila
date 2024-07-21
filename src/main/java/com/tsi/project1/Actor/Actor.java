@@ -52,4 +52,7 @@ public class Actor {
         this.lastName = lastName;
         this.lastUpdate = LocalDateTime.now();
     }
+
+//    public Actor(String penelope, String guiness) {
+//    }
 }

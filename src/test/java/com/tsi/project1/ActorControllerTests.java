@@ -2,6 +2,7 @@ package com.tsi.project1;
 
 import com.tsi.project1.Actor.Actor;
 import com.tsi.project1.Actor.ActorController;
+import com.tsi.project1.Actor.ActorInput;
 import com.tsi.project1.Actor.ActorService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -11,6 +12,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.server.ResponseStatusException;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.*;
 
 @SpringBootTest
@@ -18,23 +20,18 @@ public class ActorControllerTests {
 
 
     private ActorController actorController;
+    private ActorService mockService;
 
 
     @BeforeEach
     public void setup () {
         final var mockService = mock(ActorService.class);
+        final var actorController = new ActorController(mockService);
 
         final var actor = new Actor((short)1, "PENELOPE", "GUINESS");
 
         doThrow(new ResponseStatusException(HttpStatus.NOT_FOUND)).when(mockService).findActor(any());
         doReturn(actor).when(mockService).findActor((short)1);
-        //doThrow(new ResponseStatusException(HttpStatus.NOT_FOUND)).when(mockService).findActor(argThat(id -> id != 1));
-        // doThrow(new ResponseStatusException(HttpStatus.NOT_FOUND)).when(mockService).findActor(any());
-
-//        when(mockService.findActor((short)1)).thenReturn(new Actor());
-//        when(mockService.findActor((short)1)).thenReturn(actor);
-        //doNothing().when(mockService).deleteActor();
-
         actorController = new ActorController(mockService);
     }
 
@@ -52,9 +49,6 @@ public class ActorControllerTests {
 
     @Test
     public void actorControllerFindActorThrows404WhenInvalidId() {
-//        Assertions.assertThrows(ResponseStatusException.class, () - > {
-//           actorController.findActor((short)2)
-//        })
 
         Exception exception = null;
         try {
@@ -69,15 +63,30 @@ public class ActorControllerTests {
 
     }
 
+    @Test
+    public void actorControllerCreateActorWithValidDetails() {
+        final var actor = new Actor((short)1, "PENELOPE", "GUINESS");
+
+        final var actorInput = new ActorInput();
+        actorInput.setFirstName("PENELOPE");
+        actorInput.setLastName("GUINESS");
+
+        //doReturn(actor).when(mockService).createActor(any(ActorInput.class));
+
+        final var actual = actorController.createActor(actorInput);
+        Assertions.assertNotNull(actual, "The result should not be null");
+        Assertions.assertEquals(actor.getId(), actual.getId());
+        Assertions.assertEquals(actor.getFirstName(), actual.getFirstName());
+        Assertions.assertEquals(actor.getLastName(), actual.getLastName());
 
 
 
-//    @Test
-//    public void exampleTest() {
-//        final var expected = 4;
-//        final var actual = 2+2;
-//        Assertions.assertEquals(expected, actual, "2 plus 2 should equal 4");
-//    }
+    }
+
+    @Test
+    public void actorControllerCreateActorThrowsExceptionForInvalidActor() {
+
+    }
 
 
 
