@@ -1,13 +1,11 @@
 package com.tsi.project1.Film;
 
-
 import com.tsi.project1.Language.Language;
 import com.tsi.project1.Language.LanguageRepository;
 import com.tsi.project1.ValidationGroup;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.config.ConfigDataResourceNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -37,7 +35,7 @@ public class FilmService {
     }
 
     @PostMapping
-    public Film createFilm(@RequestBody FilmInput filmInput) {
+    public Film createFilm(@Validated(ValidationGroup.Create.class) @RequestBody FilmInput filmInput) {
         Language language = languageRepository.findById(filmInput.getLanguageId())
                 .orElseThrow(() -> new IllegalArgumentException("Language not found."));
 
