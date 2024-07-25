@@ -22,7 +22,7 @@ public class FilmResponseController {
         List<Film> films = filmRepository.findAll();
         return films.stream()
                 .map(FilmResponse:: new)
-                .collect(Collectors.toList());
+                .toList();
 
     }
 
