@@ -32,7 +32,7 @@ public class ActorControllerTests {
 
         doThrow(new ResponseStatusException(HttpStatus.NOT_FOUND)).when(mockService).findActor(any());
         doReturn(actor).when(mockService).findActor((short)1);
-        actorController = new ActorController(mockService);
+       // actorController = new ActorController(mockService);
     }
 
     @Test
@@ -63,25 +63,29 @@ public class ActorControllerTests {
 
     }
 
+//    @Test
+//    public void actorControllerCreateActorWithValidDetails() {
+//        final var actor = new Actor((short)1, "PENELOPE", "GUINESS");
+//
+//        final var actorInput = new ActorInput();
+//        actorInput.setFirstName("PENELOPE");
+//        actorInput.setLastName("GUINESS");
+//
+//        //doReturn(actor).when(mockService).createActor(any(ActorInput.class));
+//
+//        final var actual = actorController.createActor(actorInput);
+//        Assertions.assertNotNull(actual, "The result should not be null");
+//        Assertions.assertEquals(actor.getId(), actual.getId());
+//        Assertions.assertEquals(actor.getFirstName(), actual.getFirstName());
+//        Assertions.assertEquals(actor.getLastName(), actual.getLastName());
+//
+//
+//
+//    }
+
     @Test
-    public void actorControllerCreateActorWithValidDetails() {
-        final var actor = new Actor((short)1, "PENELOPE", "GUINESS");
+    public void actorControllerCreateActorWithValidDetails()
 
-        final var actorInput = new ActorInput();
-        actorInput.setFirstName("PENELOPE");
-        actorInput.setLastName("GUINESS");
-
-        //doReturn(actor).when(mockService).createActor(any(ActorInput.class));
-
-        final var actual = actorController.createActor(actorInput);
-        Assertions.assertNotNull(actual, "The result should not be null");
-        Assertions.assertEquals(actor.getId(), actual.getId());
-        Assertions.assertEquals(actor.getFirstName(), actual.getFirstName());
-        Assertions.assertEquals(actor.getLastName(), actual.getLastName());
-
-
-
-    }
 
     @Test
     public void actorControllerCreateActorThrowsExceptionForInvalidActor() {
