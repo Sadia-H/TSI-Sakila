@@ -9,7 +9,7 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.List;
 
 @RestController
-@CrossOrigin
+@CrossOrigin("http://localhost:5173")
 @RequestMapping("/actor-responses")
 public class ActorResponseController {
 

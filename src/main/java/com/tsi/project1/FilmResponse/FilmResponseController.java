@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@CrossOrigin
+@CrossOrigin("http://localhost:5173")
 @RequestMapping ("/partialFilms")
 public class FilmResponseController {
 
