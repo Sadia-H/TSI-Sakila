@@ -6,6 +6,9 @@ import com.tsi.project1.Film.FilmRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @RestController
 @CrossOrigin("http://localhost:5173")
 @RequestMapping ("/partialFilms")
@@ -13,6 +16,16 @@ public class FilmResponseController {
 
     @Autowired
     private FilmRepository filmRepository;
+
+    @GetMapping
+    public List<FilmResponse> getAllFilms() {
+        List<Film> films = filmRepository.findAll();
+        return films.stream()
+                .map(FilmResponse:: new)
+                .collect(Collectors.toList());
+
+    }
+
 
     @GetMapping("/{filmId}")
     public FilmResponse getFilmById(@PathVariable Short filmId) {
