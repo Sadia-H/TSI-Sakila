@@ -22,22 +22,15 @@ public class Language {
     @Setter
     private String name;
 
-//    @Column(name = "last_update")
-//    @Setter
-//    private LocalDateTime lastUpdate = LocalDateTime.now();
-//
     public Language() {
 
     }
 
-//    @JsonCreator
-//    public Language(@JsonProperty("languageId") Short languageId,
-//                    @JsonProperty("name") String name,
-//                    @JsonProperty("lastUpdate") LocalDateTime lastUpdate) {
-//        this.languageId = languageId;
-//        this.name = name;
-//        this.lastUpdate = lastUpdate;
-//    }
+    public Language(Short languageId, String name) {
+        this.languageId = languageId;
+        this.name = name;
+    }
+
 
 
 }

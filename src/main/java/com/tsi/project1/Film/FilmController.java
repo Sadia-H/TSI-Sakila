@@ -24,9 +24,6 @@ public class FilmController {
     @Autowired
     private FilmService filmService;
 
-//    @Autowired
-//    private LanguageRepository languageRepository;
-
     @GetMapping
     public List<Film> getAllFilms() {
         return filmService.getAllFilms();
