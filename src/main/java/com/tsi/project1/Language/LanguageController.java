@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-//@CrossOrigin("http://localhost:5173")
-@RequestMapping("/languages")
+@CrossOrigin("*")
+@RequestMapping("/api/languages")
 public class LanguageController {
 
     @Autowired

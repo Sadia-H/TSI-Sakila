@@ -17,8 +17,8 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-//@CrossOrigin("http://localhost:5173")
-@RequestMapping("/films")
+@CrossOrigin("*")
+@RequestMapping("/api/films")
 public class FilmController {
 
     @Autowired

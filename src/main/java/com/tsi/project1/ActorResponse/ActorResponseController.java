@@ -9,8 +9,8 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.List;
 
 @RestController
-//@CrossOrigin("http://localhost:5173")
-@RequestMapping("/actor-responses")
+@CrossOrigin("*")
+@RequestMapping("/api/actor-responses")
 public class ActorResponseController {
 
     @Autowired
