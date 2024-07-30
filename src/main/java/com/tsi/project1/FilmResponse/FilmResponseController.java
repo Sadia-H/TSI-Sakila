@@ -10,8 +10,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-//@CrossOrigin(origins = "*")
-@RequestMapping ("/partialFilms")
+@CrossOrigin(origins = "*")
+@RequestMapping ("/api/partialFilms")
 public class FilmResponseController {
 
     @Autowired
