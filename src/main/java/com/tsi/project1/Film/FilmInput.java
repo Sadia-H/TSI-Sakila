@@ -6,6 +6,7 @@ import jakarta.validation.constraints.*;
 import lombok.Data;
 
 import java.time.Year;
+import java.util.List;
 
 @Data
 public class FilmInput {
@@ -42,5 +43,7 @@ public class FilmInput {
 
     private String rating;
     private String specialFeatures;
+
+    private List<Short> actorIds;
 
 }

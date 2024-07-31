@@ -86,6 +86,7 @@ public class Film {
     private LocalDateTime lastUpdate = LocalDateTime.now();
 
     @ManyToMany(mappedBy = "films")
+    @Setter
     private List<Actor> cast = new ArrayList<>();
 
 

@@ -1,5 +1,7 @@
 package com.tsi.project1.Film;
 
+import com.tsi.project1.Actor.Actor;
+import com.tsi.project1.Actor.ActorRepository;
 import com.tsi.project1.Language.Language;
 import com.tsi.project1.Language.LanguageRepository;
 import com.tsi.project1.ValidationGroup;
@@ -23,6 +25,9 @@ public class FilmService {
     @Autowired
     private LanguageRepository languageRepository;
 
+    @Autowired
+    private ActorRepository actorRepository;
+
     @GetMapping
     public List<Film> getAllFilms() {
         return filmRepository.findAll();
@@ -39,6 +44,12 @@ public class FilmService {
         Language language = languageRepository.findById(filmInput.getLanguageId())
                 .orElseThrow(() -> new IllegalArgumentException("Language not found."));
 
+        List<Actor> cast = filmInput.getActorIds().stream()
+                .map(id -> actorRepository.findById(id)
+                        .orElseThrow(() -> new IllegalArgumentException("Actor not found: " + id)))
+                        .toList();
+
+
         Film film = new Film();
         film.setTitle(filmInput.getTitle());
         film.setTitle(filmInput.getTitle());
@@ -52,6 +63,7 @@ public class FilmService {
         film.setRating(filmInput.getRating());
         film.setSpecialFeatures(filmInput.getSpecialFeatures());
         film.setLastUpdate(LocalDateTime.now());
+        film.setCast(cast);
 
         return filmRepository.save(film);
     }
