@@ -32,14 +32,8 @@ public class Actor {
     @Setter
     private LocalDateTime lastUpdate = LocalDateTime.now();
 
-    @ManyToMany
-    @JoinTable(
-            name = "film_actor",
-            joinColumns = {@JoinColumn(name = "actor_id")},
-            inverseJoinColumns = {@JoinColumn(name = "film_id")}
-    )
+    @ManyToMany(mappedBy = "cast")
     private List<Film> films = new ArrayList<>();
-
 
     public Actor () {
 

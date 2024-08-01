@@ -85,10 +85,17 @@ public class Film {
     @Setter
     private LocalDateTime lastUpdate = LocalDateTime.now();
 
-    @ManyToMany(mappedBy = "films")
-    @Setter
+    @ManyToMany
+    @JoinTable(
+            name = "film_actor",
+            joinColumns = {@JoinColumn(name = "film_id")},
+            inverseJoinColumns = {@JoinColumn(name = "actor_id")}
+    )
     private List<Actor> cast = new ArrayList<>();
 
+    public void setCast(List<Actor> cast) {
+        this.cast = cast;
+    }
 
 
 //    public void setLanguage(Language language) {
