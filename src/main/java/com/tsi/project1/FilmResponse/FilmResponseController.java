@@ -3,6 +3,7 @@ package com.tsi.project1.FilmResponse;
 
 import com.tsi.project1.Film.Film;
 import com.tsi.project1.Film.FilmRepository;
+import com.tsi.project1.Language.LanguageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,6 +17,8 @@ public class FilmResponseController {
 
     @Autowired
     private FilmRepository filmRepository;
+
+
 
     @GetMapping
     public List<FilmResponse> getAllFilms() {
@@ -33,5 +36,6 @@ public class FilmResponseController {
                 .orElseThrow(() -> new IllegalArgumentException("Film not found."));
         return new FilmResponse(film);
     }
+
 
 }
