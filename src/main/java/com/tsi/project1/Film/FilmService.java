@@ -52,7 +52,6 @@ public class FilmService {
 
         Film film = new Film();
         film.setTitle(filmInput.getTitle());
-        film.setTitle(filmInput.getTitle());
         film.setDescription(filmInput.getDescription());
         film.setReleaseYear(filmInput.getReleaseYear());
         film.setLanguage(language);
