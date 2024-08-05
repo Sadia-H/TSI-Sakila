@@ -14,7 +14,7 @@ import java.util.List;
 public class ActorResponseController {
 
     @Autowired
-    private ActorRepository actorRepository;
+    public ActorRepository actorRepository;
 
     @GetMapping()
     public List<ActorResponse> readAllActors() {
