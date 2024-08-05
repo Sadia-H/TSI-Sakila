@@ -79,4 +79,7 @@ public class ActorService {
 
     }
 
+//    public boolean existsById(Short id) {
+//        return actorRepository.existsById(id);
+//    }
 }

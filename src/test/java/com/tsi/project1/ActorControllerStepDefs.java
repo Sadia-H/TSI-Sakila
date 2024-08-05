@@ -10,6 +10,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.mockito.Mockito;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -17,8 +18,7 @@ import java.util.List;
 
 import static org.junit.Assert.assertNull;
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.doReturn;
-import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.*;
 
 public class ActorControllerStepDefs {
 
@@ -86,6 +86,12 @@ public class ActorControllerStepDefs {
 
     @When("a DELETE request is made for an actor with ID {short}")
     public void aDELETERequestIsMadeForAnActorWithID(short id) {
+        try {
+            controller.deleteActor(id);
+        } catch (Exception ex) {
+            caughtException = ex;
+        }
+
     }
 
     @Then("an ActorDetailsOutput is returned")
@@ -103,6 +109,16 @@ public class ActorControllerStepDefs {
 
     @Then("the actor is deleted successfully")
     public void theActorIsDeletedSuccessfully() {
+        try {
+            controller.deleteActor((short) 10);
+            doReturn(null).when(mockService).findActor((short) 10);
+            Actor deletedActor = mockService.findActor((short)10);
+            assertNull(deletedActor);
+
+        } catch (ResponseStatusException ex) {
+            assertTrue(ex.getStatusCode() == HttpStatus.NOT_FOUND);
+        }
+
     }
 
 
