@@ -29,7 +29,12 @@ public class ActorController {
 
     @GetMapping("/{id}")
     public Actor findActor(@PathVariable Short id) {
-        return actorService.findActor(id);
+        Actor actor = actorService.findActor(id);
+        if (actor == null) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Actor with ID " + id + " not found");
+        }
+        return actor;
+       // return actorService.findActor(id);
                // .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Actor not found."));
     }
 
