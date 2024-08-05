@@ -46,7 +46,11 @@ public class ActorController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Actor createActor(
-            @Validated(ValidationGroup.Create.class) @RequestBody ActorInput data) {
+           @Validated(ValidationGroup.Create.class) @RequestBody ActorInput data) {
+             if (data.getFirstName() == null || data.getFirstName().isEmpty() ||
+                    data.getLastName() == null || data.getLastName().isEmpty()) {
+                throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Invalid actor data");
+            }
         return actorService.createActor(data);
     }
 

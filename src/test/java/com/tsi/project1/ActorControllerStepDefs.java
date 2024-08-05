@@ -11,12 +11,12 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
 import static org.junit.Assert.assertNull;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.mock;
 
@@ -49,11 +49,17 @@ public class ActorControllerStepDefs {
         doReturn(null).when(mockService).findActor((short) 13);
     }
 
+
     @Given("a valid ActorInput request body")
     public void aValidActorInputRequestBody() {
         actorInput = new ActorInput("Jane", "Doe");
         Actor createdActor = new Actor((short) 42, "Jane", "Doe", List.of());
         doReturn(createdActor).when(mockService).createActor(actorInput);
+    }
+
+    @Given("an invalid ActorInput request body")
+    public void anInvalidActorInputRequestBody() {
+        actorInput = new ActorInput(null, "");
     }
 
     @When("a GET request is made for an actor with ID {short}")
@@ -78,6 +84,10 @@ public class ActorControllerStepDefs {
 
     }
 
+    @When("a DELETE request is made for an actor with ID {short}")
+    public void aDELETERequestIsMadeForAnActorWithID(short id) {
+    }
+
     @Then("an ActorDetailsOutput is returned")
     public void anActorDetailsOutputIsReturned() {
         assertNotNull(actualOutput);
@@ -90,4 +100,10 @@ public class ActorControllerStepDefs {
         assertNotNull(caughtException);
         assertNull(errorMessage);
     }
+
+    @Then("the actor is deleted successfully")
+    public void theActorIsDeletedSuccessfully() {
+    }
+
+
 }
