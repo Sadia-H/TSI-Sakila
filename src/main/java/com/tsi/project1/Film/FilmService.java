@@ -34,7 +34,7 @@ public class FilmService {
     }
 
     @GetMapping("/{filmId}")
-    public Film getFilm(@PathVariable Short filmId) {
+    public Film getFilmById(@PathVariable Short filmId) {
 
         return filmRepository.findById(filmId).get();
     }

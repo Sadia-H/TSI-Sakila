@@ -3,6 +3,7 @@ package com.tsi.project1.Film;
 
 import com.tsi.project1.Actor.Actor;
 import com.tsi.project1.Actor.ActorInput;
+import com.tsi.project1.Actor.ActorService;
 import com.tsi.project1.Language.Language;
 import com.tsi.project1.Language.LanguageRepository;
 import com.tsi.project1.ValidationGroup;
@@ -24,14 +25,18 @@ public class FilmController {
     @Autowired
     private FilmService filmService;
 
+    public FilmController(FilmService filmService) {
+        this.filmService = filmService;
+    }
+
     @GetMapping
     public List<Film> getAllFilms() {
         return filmService.getAllFilms();
     }
 
     @GetMapping("/{filmId}")
-    public Film getFilm(@PathVariable Short filmId) {
-        return filmService.getFilm(filmId);
+    public Film getFilmById(@PathVariable Short filmId) {
+        return filmService.getFilmById(filmId);
     }
 
 

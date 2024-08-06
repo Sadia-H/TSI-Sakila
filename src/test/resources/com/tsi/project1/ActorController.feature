@@ -24,6 +24,12 @@ Feature: ActorController
     When a POST request is made to the actors collection
     Then a ResponseStatusException is thrown
 
+  Scenario: An actor is updated
+    Given an actor exists with ID 15
+    And a valid ActorInput request body
+    When a PUT request is made for an actor with ID 15
+    Then an ActorDetailsOutput is returned
+
   Scenario: An actor is deleted by ID
     Given an actor exists with ID 10
     When a DELETE request is made for an actor with ID 10

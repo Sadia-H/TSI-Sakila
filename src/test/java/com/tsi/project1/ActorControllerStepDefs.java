@@ -40,8 +40,8 @@ public class ActorControllerStepDefs {
     @Given("an actor exists with ID {short}")
     public void anActorExistsWithID(short id) {
         List<Film> films = List.of(new Film("FilmExample1"), new Film("FilmExample2"));
-       final var actor = new Actor(id, "Jo", "Smith", List.of()); //dummy actor
-         doReturn(actor).when(mockService).findActor(id);
+        final var actor = new Actor(id, "Jo", "Smith", List.of()); //dummy actor
+        doReturn(actor).when(mockService).findActor(id);
     }
 
     @Given("no actors exist with ID {short}")
@@ -78,18 +78,31 @@ public class ActorControllerStepDefs {
         try {
             actualOutput = controller.createActor(actorInput);
 
-        } catch (Exception ex) {
-            caughtException = ex;
+        } catch (Exception e) {
+            caughtException = e;
         }
 
+    }
+
+    @When("a PUT request is made for an actor with ID {short}")
+    public void aPUTRequestIsMadeForAnActorWithID(short id) {
+        ActorInput updatedActorInput = new ActorInput("UpdatedName", "UpdatedSurname");
+        Actor updatedActor = new Actor((short) id, "UpdatedName", "UpdatedSurname", List.of());
+        doReturn(updatedActor).when(mockService).updateActor((short) id, updatedActorInput);
+
+        try {
+            actualOutput = controller.updateActor((short) id, updatedActorInput);
+        } catch (Exception e) {
+            caughtException = e;
+        }
     }
 
     @When("a DELETE request is made for an actor with ID {short}")
     public void aDELETERequestIsMadeForAnActorWithID(short id) {
         try {
             controller.deleteActor(id);
-        } catch (Exception ex) {
-            caughtException = ex;
+        } catch (Exception e) {
+            caughtException = e;
         }
 
     }
@@ -115,11 +128,12 @@ public class ActorControllerStepDefs {
             Actor deletedActor = mockService.findActor((short)10);
             assertNull(deletedActor);
 
-        } catch (ResponseStatusException ex) {
-            assertTrue(ex.getStatusCode() == HttpStatus.NOT_FOUND);
+        } catch (ResponseStatusException e) {
+            assertTrue(e.getStatusCode() == HttpStatus.NOT_FOUND);
         }
 
     }
+
 
 
 }
