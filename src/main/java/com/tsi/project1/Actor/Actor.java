@@ -46,22 +46,4 @@ public class Actor {
         this.lastUpdate = LocalDateTime.now();
     }
 
-
-//    public Actor(Short id, String firstName, String lastName, List<Film> films) {
-//        this.id = id;
-//        this.firstName = firstName;
-//        this.lastName = lastName;
-//        this.films = films;
-//        this.lastUpdate = LocalDateTime.now();
-//    }
-
-
-//    public Actor(Short id, String firstName, String lastName) {
-//        this.id = id;
-//        this.firstName = firstName;
-//        this.lastName = lastName;
-//        this.lastUpdate = LocalDateTime.now();
-//    }
-
-
 }

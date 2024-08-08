@@ -70,16 +70,11 @@ public class ActorService {
 
     @DeleteMapping("/{id}")
     public void deleteActor(@PathVariable Short id) {
-        //  actorRepository.deleteById(id);
         Actor existingActor = actorRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Actor not found."));
         actorRepository.delete(existingActor);
 
-
-
     }
 
-//    public boolean existsById(Short id) {
-//        return actorRepository.existsById(id);
-//    }
+
 }

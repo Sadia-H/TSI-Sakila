@@ -34,14 +34,7 @@ public class ActorController {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Actor with ID " + id + " not found");
         }
         return actor;
-       // return actorService.findActor(id);
-               // .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Actor not found."));
     }
-
-//    @GetMapping("/{id}")
-//    public Actor findActor(@PathVariable Short id) {
-//        return actorService.findActor(id);
-//    }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
@@ -74,12 +67,6 @@ public class ActorController {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Actor not found");
         }
         actorService.deleteActor(id);
-
-//        if (!actorService.existsById(id)) {
-//            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Actor not found");
-//        }
-//        actorService.deleteActor(id);
-
 
     }
 
