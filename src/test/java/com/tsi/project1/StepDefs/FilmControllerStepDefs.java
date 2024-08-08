@@ -1,4 +1,4 @@
-package com.tsi.project1;
+package com.tsi.project1.StepDefs;
 
 import com.tsi.project1.Film.Film;
 import com.tsi.project1.Film.FilmController;
