@@ -16,6 +16,8 @@ import java.util.List;
 @Transactional
 public class ActorService {
 
+    private static final String actorNotFoundMessage = "Actor not found.";
+
     @Autowired
     private ActorRepository actorRepository;
 
@@ -44,7 +46,7 @@ public class ActorService {
     @PutMapping("/{id}")
     public Actor updateActor( @Validated(ValidationGroup.Update.class) @PathVariable Short id, @RequestBody ActorInput actorInput) {
         Actor existingActor = actorRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Actor not found."));
+                .orElseThrow(() -> new IllegalArgumentException(actorNotFoundMessage));
 
         existingActor.setFirstName(actorInput.getFirstName());
         existingActor.setLastName(actorInput.getLastName());
@@ -55,7 +57,7 @@ public class ActorService {
     @PatchMapping("/{id}")
     public Actor patchActor(@PathVariable Short id, @RequestBody ActorInput actorInput) {
         Actor actor = actorRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Actor not found."));
+                .orElseThrow(() -> new IllegalArgumentException(actorNotFoundMessage));
 
         if(actorInput.getFirstName() != null) {
             actor.setFirstName(actorInput.getFirstName());
@@ -71,7 +73,7 @@ public class ActorService {
     @DeleteMapping("/{id}")
     public void deleteActor(@PathVariable Short id) {
         Actor existingActor = actorRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Actor not found."));
+                .orElseThrow(() -> new IllegalArgumentException(actorNotFoundMessage));
         actorRepository.delete(existingActor);
 
     }
