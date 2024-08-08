@@ -39,7 +39,6 @@ public class ActorControllerStepDefs {
 
     @Given("an actor exists with ID {short}")
     public void anActorExistsWithID(short id) {
-        List<Film> films = List.of(new Film("FilmExample1"), new Film("FilmExample2"));
         final var actor = new Actor(id, "Jo", "Smith", List.of()); //dummy actor
         doReturn(actor).when(mockService).findActor(id);
     }
