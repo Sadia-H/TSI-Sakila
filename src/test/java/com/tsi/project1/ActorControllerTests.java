@@ -105,6 +105,28 @@ public class ActorControllerTests {
         verify(mockService, times(1)).createActor(any(ActorInput.class));
     }
 
+    @Test
+    public void actorControllerPatchActorWithValidDetails() {
+
+        //mock data
+        Short actorId = (short) 5;
+        ActorInput actorInput = new ActorInput("EDDY", "CHASE");
+        Actor updatedActor = new Actor(actorId, "EDDY", "CHASE", new ArrayList<>());
+
+        //mock behaviour
+        when(mockService.patchActor(anyShort(), any(ActorInput.class))).thenReturn(updatedActor);
+
+        //call controller method
+        Actor result = actorController.patchActor(actorId, actorInput);
+
+        //verify results
+        assertNotNull(result, "The result should not be null");
+        assertEquals(actorId, result.getId(), "The actor ID should be 5.");
+        assertEquals("EDDY", result.getFirstName(), "The actor's first name should be EDDY.");
+        assertEquals("CHASE", result.getLastName(), "The actor's last name should be CHASE");
+
+    }
+
 
 //    @Test
 //    public void actorControllerCreateActorThrowsExceptionForInvalidActor() {
