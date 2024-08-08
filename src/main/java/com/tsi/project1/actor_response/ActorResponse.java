@@ -1,7 +1,7 @@
-package com.tsi.project1.actorResponse;
+package com.tsi.project1.actor_response;
 
 import com.tsi.project1.actor.Actor;
-import com.tsi.project1.filmResponse.PartialFilmResponse;
+import com.tsi.project1.film_response.PartialFilmResponse;
 import lombok.Getter;
 
 import java.util.List;

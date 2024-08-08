@@ -1,6 +1,6 @@
-package com.tsi.project1.filmResponse;
+package com.tsi.project1.film_response;
 
-import com.tsi.project1.actorResponse.PartialActorResponse;
+import com.tsi.project1.actor_response.PartialActorResponse;
 import com.tsi.project1.film.Film;
 import com.tsi.project1.language.Language;
 import lombok.Getter;
