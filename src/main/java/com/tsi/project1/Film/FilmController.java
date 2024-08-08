@@ -1,21 +1,11 @@
 package com.tsi.project1.Film;
 
-
-import com.tsi.project1.Actor.Actor;
-import com.tsi.project1.Actor.ActorInput;
-import com.tsi.project1.Actor.ActorService;
-import com.tsi.project1.Language.Language;
-import com.tsi.project1.Language.LanguageRepository;
 import com.tsi.project1.ValidationGroup;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-
-import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @CrossOrigin("*")
@@ -38,9 +28,6 @@ public class FilmController {
     public Film getFilmById(@PathVariable Short filmId) {
         return filmService.getFilmById(filmId);
     }
-
-
-
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
