@@ -19,6 +19,7 @@ public class Film {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "film_id")
+    @Setter
     private Short filmId;
 
     @Column(name = "title")
@@ -33,9 +34,6 @@ public class Film {
     @Setter
     private Year releaseYear;
 
-//    @Column(name = "language_id")
-//    @Setter
-//    private Short languageId;
 
     @ManyToOne
     @JoinColumn(name = "language_id")
@@ -46,16 +44,6 @@ public class Film {
     @Setter
     private Short originalLanguageId;
 
-//    @ManyToOne
-//    @JoinColumn(name = "language_id", nullable = false)
-//    @Setter
-//    private Language language;
-
-
-//    @ManyToOne
-//    @JoinColumn(name = "original_language_id")
-//    @Setter
-//    private Language originalLanguageId;
 
     @Column(name = "rental_duration")
     @Setter
@@ -107,6 +95,4 @@ public class Film {
     }
 
 
-//    public void setLanguage(Language language) {
-//    }
 }
