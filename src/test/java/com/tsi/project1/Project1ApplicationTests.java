@@ -8,6 +8,7 @@ class Project1ApplicationTests {
 
 	@Test
 	void contextLoads() {
+		// The test passes if the application context loads without exceptions.
 	}
 
 }
