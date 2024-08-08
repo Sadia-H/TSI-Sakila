@@ -4,13 +4,10 @@ import com.tsi.project1.Actor.Actor;
 import com.tsi.project1.Actor.ActorController;
 import com.tsi.project1.Actor.ActorInput;
 import com.tsi.project1.Actor.ActorService;
-import com.tsi.project1.Film.Film;
 import io.cucumber.java.Before;
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.mockito.Mockito;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;
 
