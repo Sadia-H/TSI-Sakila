@@ -16,7 +16,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 @SpringBootTest
-public class FilmControllerTests {
+class FilmControllerTests {
 
     private FilmController filmController;
     private FilmService mockService;

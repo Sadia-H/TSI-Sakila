@@ -19,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.*;
 
 @SpringBootTest
-public class ActorControllerTests {
+class ActorControllerTests {
 
     private ActorController actorController;
     private ActorService mockService;
@@ -36,7 +36,7 @@ public class ActorControllerTests {
     }
 
     @Test
-    public void actorControllerFindAllActors() {
+    void actorControllerFindAllActors() {
 
         //mock data to be returned by mock service
         final var actor1 = new Actor((short)2, "JOHN", "DOE", new ArrayList<>());
@@ -50,7 +50,7 @@ public class ActorControllerTests {
         List<Actor> result = actorController.findAllActors();
 
         //verify results
-        assertNotNull(result, "The result should not be null");;
+        assertNotNull(result, "The result should not be null");
         assertEquals(2, result.size(), "The result should contain 2 actors.");
         assertEquals(actor1, result.get(0), "The first actor should be JOHN DOE");
         assertEquals(actor2, result.get(1), "The second actor should be SARAH DOE");
@@ -58,7 +58,7 @@ public class ActorControllerTests {
     }
 
     @Test
-    public void actorControllerFindActorReturnsAnExistingActor() {
+    void actorControllerFindActorReturnsAnExistingActor() {
         final var expectedId = (short)1;
         final var expectedFirstName = "PENELOPE";
         final var expectedLastName = "GUINESS";
@@ -70,7 +70,7 @@ public class ActorControllerTests {
     }
 
     @Test
-    public void actorControllerFindActorThrows404WhenInvalidId() {
+    void actorControllerFindActorThrows404WhenInvalidId() {
 
         Exception exception = null;
         try {
@@ -87,7 +87,7 @@ public class ActorControllerTests {
 
 
     @Test
-    public void actorControllerCreateActorWithValidDetails(){
+    void actorControllerCreateActorWithValidDetails(){
         final var newActor = new Actor((short)2, "JOHN", "DOE", new ArrayList<>());
         final var actorInput = new ActorInput("JOHN", "DOE");
 
@@ -104,7 +104,7 @@ public class ActorControllerTests {
     }
 
     @Test
-    public void actorControllerPatchActorWithValidDetails() {
+    void actorControllerPatchActorWithValidDetails() {
 
         //mock data
         Short actorId = (short) 5;

@@ -16,7 +16,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 @SpringBootTest
-public class LanguageControllerTests {
+class LanguageControllerTests {
 
     private LanguageController languageController;
     private LanguageRepository mockRepository;
@@ -35,7 +35,7 @@ public class LanguageControllerTests {
     }
 
     @Test
-    public void languageControllerFindAllLanguages() {
+    void languageControllerFindAllLanguages() {
 
         //call the languagecontroller method
         List<Language> result = languageController.getAllLanguages();
