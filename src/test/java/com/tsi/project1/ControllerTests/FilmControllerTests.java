@@ -1,9 +1,9 @@
 package com.tsi.project1.ControllerTests;
 
 
-import com.tsi.project1.Film.Film;
-import com.tsi.project1.Film.FilmController;
-import com.tsi.project1.Film.FilmService;
+import com.tsi.project1.film.Film;
+import com.tsi.project1.film.FilmController;
+import com.tsi.project1.film.FilmService;
 import org.junit.jupiter.api.BeforeEach;
 import org.springframework.boot.test.context.SpringBootTest;
 

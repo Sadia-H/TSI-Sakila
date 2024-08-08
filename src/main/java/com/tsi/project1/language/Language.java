@@ -1,4 +1,4 @@
-package com.tsi.project1.Language;
+package com.tsi.project1.language;
 
 import jakarta.persistence.*;
 import lombok.Getter;

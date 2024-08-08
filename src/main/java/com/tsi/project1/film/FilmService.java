@@ -1,9 +1,9 @@
-package com.tsi.project1.Film;
+package com.tsi.project1.film;
 
 import com.tsi.project1.actor.Actor;
 import com.tsi.project1.actor.ActorRepository;
-import com.tsi.project1.Language.Language;
-import com.tsi.project1.Language.LanguageRepository;
+import com.tsi.project1.language.Language;
+import com.tsi.project1.language.LanguageRepository;
 import com.tsi.project1.ValidationGroup;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.BeanUtils;

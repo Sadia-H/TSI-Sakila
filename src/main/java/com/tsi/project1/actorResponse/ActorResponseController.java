@@ -1,4 +1,4 @@
-package com.tsi.project1.ActorResponse;
+package com.tsi.project1.actorResponse;
 
 import com.tsi.project1.actor.ActorRepository;
 import org.springframework.beans.factory.annotation.Autowired;

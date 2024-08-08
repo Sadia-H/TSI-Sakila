@@ -1,8 +1,8 @@
-package com.tsi.project1.FilmResponse;
+package com.tsi.project1.filmResponse;
 
-import com.tsi.project1.ActorResponse.PartialActorResponse;
-import com.tsi.project1.Film.Film;
-import com.tsi.project1.Language.Language;
+import com.tsi.project1.actorResponse.PartialActorResponse;
+import com.tsi.project1.film.Film;
+import com.tsi.project1.language.Language;
 import lombok.Getter;
 
 import java.time.Year;

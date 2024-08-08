@@ -1,4 +1,4 @@
-package com.tsi.project1.ActorResponse;
+package com.tsi.project1.actorResponse;
 
 import com.tsi.project1.actor.Actor;
 import lombok.Getter;

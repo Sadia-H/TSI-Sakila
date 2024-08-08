@@ -1,6 +1,6 @@
-package com.tsi.project1.FilmResponse;
+package com.tsi.project1.filmResponse;
 
-import com.tsi.project1.Film.Film;
+import com.tsi.project1.film.Film;
 import lombok.Getter;
 
 import java.time.Year;

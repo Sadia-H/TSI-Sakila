@@ -1,4 +1,4 @@
-package com.tsi.project1.Film;
+package com.tsi.project1.film;
 
 import com.tsi.project1.ValidationGroup;
 import org.springframework.beans.factory.annotation.Autowired;

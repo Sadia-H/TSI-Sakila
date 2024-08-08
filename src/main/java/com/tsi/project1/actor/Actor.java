@@ -1,5 +1,5 @@
 package com.tsi.project1.actor;
-import com.tsi.project1.Film.Film;
+import com.tsi.project1.film.Film;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;

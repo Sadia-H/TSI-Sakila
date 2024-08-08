@@ -1,9 +1,9 @@
 package com.tsi.project1.StepDefs;
 
-import com.tsi.project1.Film.Film;
-import com.tsi.project1.Film.FilmController;
-import com.tsi.project1.Film.FilmInput;
-import com.tsi.project1.Film.FilmService;
+import com.tsi.project1.film.Film;
+import com.tsi.project1.film.FilmController;
+import com.tsi.project1.film.FilmInput;
+import com.tsi.project1.film.FilmService;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;

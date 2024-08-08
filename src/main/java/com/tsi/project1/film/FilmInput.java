@@ -1,6 +1,6 @@
-package com.tsi.project1.Film;
+package com.tsi.project1.film;
 
-import com.tsi.project1.Language.Language;
+import com.tsi.project1.language.Language;
 import com.tsi.project1.ValidationGroup;
 import jakarta.validation.constraints.*;
 import lombok.Data;

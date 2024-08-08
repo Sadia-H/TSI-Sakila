@@ -1,8 +1,8 @@
 package com.tsi.project1.ControllerTests;
 
-import com.tsi.project1.Language.Language;
-import com.tsi.project1.Language.LanguageController;
-import com.tsi.project1.Language.LanguageRepository;
+import com.tsi.project1.language.Language;
+import com.tsi.project1.language.LanguageController;
+import com.tsi.project1.language.LanguageRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

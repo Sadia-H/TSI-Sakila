@@ -1,8 +1,8 @@
-package com.tsi.project1.FilmResponse;
+package com.tsi.project1.filmResponse;
 
 
-import com.tsi.project1.Film.Film;
-import com.tsi.project1.Film.FilmRepository;
+import com.tsi.project1.film.Film;
+import com.tsi.project1.film.FilmRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
