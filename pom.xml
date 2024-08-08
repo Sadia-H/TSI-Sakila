@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.tsi</groupId>
-	<artifactId>project1</artifactId>
+	<artifactId>SakilaAPI</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>project1</name>
 	<description>First sakila project</description>
