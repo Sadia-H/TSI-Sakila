@@ -31,7 +31,6 @@ public class ActorControllerTests {
         actorController = new ActorController(mockService);
 
         final var actor = new Actor((short)1, "PENELOPE", "GUINESS", new ArrayList<>());
-
         doThrow(new ResponseStatusException(HttpStatus.NOT_FOUND)).when(mockService).findActor(any());
         doReturn(actor).when(mockService).findActor((short)1);
     }

@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.time.LocalDateTime;
 
@@ -30,7 +31,5 @@ public class Language {
         this.languageId = languageId;
         this.name = name;
     }
-
-
 
 }

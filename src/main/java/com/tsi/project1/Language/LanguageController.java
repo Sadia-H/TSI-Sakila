@@ -17,6 +17,11 @@ public class LanguageController {
     @Autowired
     private LanguageRepository languageRepository;
 
+    @Autowired
+    public LanguageController(LanguageRepository languageRepository) {
+        this.languageRepository = languageRepository;
+    }
+
     @GetMapping
     public List<Language> getAllLanguages() {
         return languageRepository.findAll();
