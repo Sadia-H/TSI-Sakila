@@ -18,10 +18,6 @@ public class FilmInput {
     private String description;
     private Year releaseYear;
 
-//    @NotNull(groups = {ValidationGroup.Create.class})
-//    @Min(1) @Max(255)
-//    private Short languageId;
-
     private Short languageId;
     private Language language;
 

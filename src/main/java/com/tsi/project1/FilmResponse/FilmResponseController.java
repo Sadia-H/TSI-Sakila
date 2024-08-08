@@ -3,12 +3,9 @@ package com.tsi.project1.FilmResponse;
 
 import com.tsi.project1.Film.Film;
 import com.tsi.project1.Film.FilmRepository;
-import com.tsi.project1.Language.LanguageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
 @CrossOrigin(origins = "*")
