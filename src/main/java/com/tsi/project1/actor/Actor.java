@@ -1,4 +1,4 @@
-package com.tsi.project1.Actor;
+package com.tsi.project1.actor;
 import com.tsi.project1.Film.Film;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;

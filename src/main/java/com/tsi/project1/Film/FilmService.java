@@ -1,7 +1,7 @@
 package com.tsi.project1.Film;
 
-import com.tsi.project1.Actor.Actor;
-import com.tsi.project1.Actor.ActorRepository;
+import com.tsi.project1.actor.Actor;
+import com.tsi.project1.actor.ActorRepository;
 import com.tsi.project1.Language.Language;
 import com.tsi.project1.Language.LanguageRepository;
 import com.tsi.project1.ValidationGroup;

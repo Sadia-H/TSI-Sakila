@@ -1,9 +1,9 @@
 package com.tsi.project1.StepDefs;
 
-import com.tsi.project1.Actor.Actor;
-import com.tsi.project1.Actor.ActorController;
-import com.tsi.project1.Actor.ActorInput;
-import com.tsi.project1.Actor.ActorService;
+import com.tsi.project1.actor.Actor;
+import com.tsi.project1.actor.ActorController;
+import com.tsi.project1.actor.ActorInput;
+import com.tsi.project1.actor.ActorService;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;

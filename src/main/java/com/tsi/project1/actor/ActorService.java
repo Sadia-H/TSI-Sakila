@@ -1,14 +1,12 @@
-package com.tsi.project1.Actor;
+package com.tsi.project1.actor;
 
 import com.tsi.project1.ValidationGroup;
 import jakarta.transaction.Transactional;
-import org.hibernate.query.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import java.awt.print.Pageable;
 import java.time.LocalDateTime;
 import java.util.List;
 

@@ -1,6 +1,6 @@
 package com.tsi.project1.ActorResponse;
 
-import com.tsi.project1.Actor.ActorRepository;
+import com.tsi.project1.actor.ActorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;

@@ -1,14 +1,8 @@
 package com.tsi.project1.Language;
 
-
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.beans.factory.annotation.Autowired;
-
-import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "language")

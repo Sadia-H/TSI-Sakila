@@ -1,4 +1,4 @@
-package com.tsi.project1.Actor;
+package com.tsi.project1.actor;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

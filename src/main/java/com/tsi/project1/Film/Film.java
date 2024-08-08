@@ -1,6 +1,6 @@
 package com.tsi.project1.Film;
 
-import com.tsi.project1.Actor.Actor;
+import com.tsi.project1.actor.Actor;
 import com.tsi.project1.Language.Language;
 import jakarta.persistence.*;
 import lombok.Getter;

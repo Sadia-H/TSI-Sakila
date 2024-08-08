@@ -1,9 +1,9 @@
 package com.tsi.project1.ControllerTests;
 
-import com.tsi.project1.Actor.Actor;
-import com.tsi.project1.Actor.ActorController;
-import com.tsi.project1.Actor.ActorInput;
-import com.tsi.project1.Actor.ActorService;
+import com.tsi.project1.actor.Actor;
+import com.tsi.project1.actor.ActorController;
+import com.tsi.project1.actor.ActorInput;
+import com.tsi.project1.actor.ActorService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
