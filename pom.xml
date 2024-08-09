@@ -111,20 +111,20 @@
 				<version>0.8.11</version>
 				<configuration>
 					<excludes>
-						<exclude>**/Actor</exclude>
-						<exclude>**/ActorInput.java</exclude>
-						<exclude>**/ActorRepository.java</exclude>
-						<exclude>**/ActorResponse.java</exclude>
-						<exclude>**/PartialActorResponse.java</exclude>
-						<exclude>**/Film.java</exclude>
-						<exclude>**/FilmInput.java</exclude>
-						<exclude>**/FilmRepository.java</exclude>
-						<exclude>**/FilmResponse.java</exclude>
-						<exclude>**/PartialFilmResponse.java</exclude>
-						<exclude>**/Language.java</exclude>
-						<exclude>**/LanguageRepository.java</exclude>
-						<exclude>**/ValidationGroup.java</exclude>
-						<exclude>**/Project1Application.java</exclude>
+						<exclude>**/Actor.*</exclude>
+						<exclude>**/ActorInput.*</exclude>
+						<exclude>**/ActorRepository.*</exclude>
+						<exclude>**/ActorResponse.*</exclude>
+						<exclude>**/PartialActorResponse.*</exclude>
+						<exclude>**/Film.*</exclude>
+						<exclude>**/FilmInput.*</exclude>
+						<exclude>**/FilmRepository.*</exclude>
+						<exclude>**/FilmResponse.*</exclude>
+						<exclude>**/PartialFilmResponse.*</exclude>
+						<exclude>**/Language.*</exclude>
+						<exclude>**/LanguageRepository.*</exclude>
+						<exclude>**/ValidationGroup.*</exclude>
+						<exclude>**/Project1Application.*</exclude>
 					</excludes>
 				</configuration>
 				<executions>
