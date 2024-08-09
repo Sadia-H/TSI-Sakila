@@ -62,7 +62,6 @@ public class ActorControllerStepDefs {
     public void aGETRequestIsMadeForAnActorWithId(short id) {
         try {
             actualOutput = controller.findActor(id);
-
         } catch (Exception ex) {
             caughtException = ex;
         }
