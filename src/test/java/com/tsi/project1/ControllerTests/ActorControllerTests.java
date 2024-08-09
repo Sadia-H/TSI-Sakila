@@ -126,10 +126,6 @@ class ActorControllerTests {
     }
 
 
-//    @Test
-//    public void actorControllerCreateActorThrowsExceptionForInvalidActor() {
-//
-//    }
 
 
 

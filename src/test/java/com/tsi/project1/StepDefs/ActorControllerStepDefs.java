@@ -121,15 +121,13 @@ public class ActorControllerStepDefs {
         try {
             controller.deleteActor((short) 10);
             doReturn(null).when(mockService).findActor((short) 10);
-            Actor deletedActor = mockService.findActor((short)10);
+            Actor deletedActor = mockService.findActor((short) 10);
             assertNull(deletedActor);
 
         } catch (ResponseStatusException e) {
-            assertTrue(e.getStatusCode() == HttpStatus.NOT_FOUND);
+            assertSame(HttpStatus.NOT_FOUND, e.getStatusCode());
         }
 
+
     }
-
-
-
 }

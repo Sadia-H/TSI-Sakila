@@ -19,14 +19,16 @@ import java.util.List;
 @Transactional
 public class FilmService {
 
-    @Autowired
-    private FilmRepository filmRepository;
+    private final FilmRepository filmRepository;
+    private final LanguageRepository languageRepository;
+    private final ActorRepository actorRepository;
 
     @Autowired
-    private LanguageRepository languageRepository;
-
-    @Autowired
-    private ActorRepository actorRepository;
+    public FilmService(FilmRepository filmRepository, LanguageRepository languageRepository, ActorRepository actorRepository) {
+        this.filmRepository = filmRepository;
+        this.languageRepository = languageRepository;
+        this.actorRepository = actorRepository;
+    }
 
     @GetMapping
     public List<Film> getAllFilms() {

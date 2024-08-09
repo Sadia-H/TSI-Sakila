@@ -16,12 +16,13 @@ public class ActorService {
 
     private static final String ACTOR_NOT_FOUND_MESSAGE = "Actor not found.";
 
-    @Autowired
-    private ActorRepository actorRepository;
 
-//    public Page<Actor> firstActors(Pageable pageable) {
-//
-//    }
+    private final ActorRepository actorRepository;
+
+    @Autowired
+    public ActorService(ActorRepository actorRepository) {
+        this.actorRepository = actorRepository;
+    }
 
     @GetMapping
     public List<Actor> findAllActors () {

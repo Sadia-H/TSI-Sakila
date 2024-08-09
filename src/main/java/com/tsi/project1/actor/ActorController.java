@@ -14,9 +14,10 @@ import java.util.List;
 @RequestMapping("/api/actors")
 public class ActorController {
 
-    @Autowired
-    private ActorService actorService;
 
+    private final ActorService actorService;
+
+    @Autowired
     public ActorController(ActorService actorService) {
         this.actorService = actorService;
     }

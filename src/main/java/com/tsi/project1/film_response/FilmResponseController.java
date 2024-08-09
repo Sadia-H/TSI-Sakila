@@ -12,9 +12,12 @@ import java.util.List;
 @RequestMapping ("/api/partialFilms")
 public class FilmResponseController {
 
-    @Autowired
-    private FilmRepository filmRepository;
+    private final FilmRepository filmRepository;
 
+    @Autowired
+    public FilmResponseController(FilmRepository filmRepository) {
+        this.filmRepository = filmRepository;
+    }
 
 
     @GetMapping

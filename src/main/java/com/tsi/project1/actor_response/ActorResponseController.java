@@ -13,8 +13,12 @@ import java.util.List;
 @RequestMapping("/api/actor-responses")
 public class ActorResponseController {
 
+    private final ActorRepository actorRepository;
+
     @Autowired
-    public ActorRepository actorRepository;
+    public ActorResponseController(ActorRepository actorRepository) {
+        this.actorRepository = actorRepository;
+    }
 
     @GetMapping()
     public List<ActorResponse> readAllActors() {

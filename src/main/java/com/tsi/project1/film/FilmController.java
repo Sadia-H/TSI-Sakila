@@ -12,9 +12,9 @@ import java.util.List;
 @RequestMapping("/api/films")
 public class FilmController {
 
-    @Autowired
-    private FilmService filmService;
+    private final FilmService filmService;
 
+    @Autowired
     public FilmController(FilmService filmService) {
         this.filmService = filmService;
     }

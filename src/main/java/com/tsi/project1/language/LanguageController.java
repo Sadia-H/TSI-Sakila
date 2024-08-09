@@ -14,8 +14,7 @@ import java.util.List;
 @RequestMapping("/api/languages")
 public class LanguageController {
 
-    @Autowired
-    private LanguageRepository languageRepository;
+    private final LanguageRepository languageRepository;
 
     @Autowired
     public LanguageController(LanguageRepository languageRepository) {
