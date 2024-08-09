@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = {"http://localhost:5173", "http://13.42.103.58"})
 @RequestMapping ("/api/partialFilms")
 public class FilmResponseController {
 

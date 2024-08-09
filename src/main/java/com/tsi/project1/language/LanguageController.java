@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@CrossOrigin("*")
+@CrossOrigin(origins = {"http://localhost:5173", "http://13.42.103.58"})
 @RequestMapping("/api/languages")
 public class LanguageController {
 
