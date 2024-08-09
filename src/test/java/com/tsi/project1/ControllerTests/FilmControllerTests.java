@@ -62,8 +62,9 @@ class FilmControllerTests {
 
     }
 
+
     @Test
-    public void filmControllerGetAllFilms() {
+    void filmControllerGetAllFilms() {
         // call the method on the controller
         List<Film> result = filmController.getAllFilms();
 
