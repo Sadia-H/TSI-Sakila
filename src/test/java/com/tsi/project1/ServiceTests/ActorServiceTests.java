@@ -19,19 +19,18 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @SpringBootTest
-@Transactional
 public class ActorServiceTests {
 
-    @Autowired
     private ActorService actorService;
-
-    @MockBean
     private ActorRepository mockRepository;
-
     private Actor actor;
 
     @BeforeEach
     void setup () {
+
+        mockRepository = mock(ActorRepository.class);
+        actorService = new ActorService(mockRepository);
+
         actor = new Actor();
         actor.setId((short)1);
         actor.setFirstName("John");
