@@ -5,6 +5,7 @@ import com.tsi.project1.actor.Actor;
 import com.tsi.project1.actor.ActorInput;
 import com.tsi.project1.actor.ActorRepository;
 import com.tsi.project1.actor.ActorService;
+import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @SpringBootTest
+@Transactional
 public class ActorServiceTests {
 
     @Autowired
