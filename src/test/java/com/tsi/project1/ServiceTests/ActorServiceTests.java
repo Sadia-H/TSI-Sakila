@@ -5,12 +5,9 @@ import com.tsi.project1.actor.Actor;
 import com.tsi.project1.actor.ActorInput;
 import com.tsi.project1.actor.ActorRepository;
 import com.tsi.project1.actor.ActorService;
-import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
 
 import java.util.List;
 import java.util.Optional;
@@ -19,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @SpringBootTest
-public class ActorServiceTests {
+class ActorServiceTests {
 
     private ActorService actorService;
     private ActorRepository mockRepository;
@@ -90,19 +87,6 @@ public class ActorServiceTests {
         verify(mockRepository, times(1)).save(actor);
     }
 
-//    @Test
-//    void actorServiceTestUpdateActorNotFound () {
-//        ActorInput updateInput = new ActorInput("Jane", "Doe");
-//        when(mockRepository.findById((short)1)).thenReturn(Optional.empty());
-//
-//        Exception e = assertThrows(IllegalArgumentException.class, () -> {
-//            actorService.updateActor((short)1, updateInput);
-//        });
-//
-//        assertEquals("Actor not found.", e.getMessage());
-//        verify(mockRepository, times(1)).findById((short)1);
-//    }
-
     @Test
     void actorServiceTestPatchActor () {
         ActorInput actorInput = new ActorInput("Jane", null);
@@ -120,20 +104,6 @@ public class ActorServiceTests {
 
     }
 
-//    @Test
-//    void actorServiceTestPatchActorNotFound() {
-//        ActorInput patchInput = new ActorInput("Jane", null);
-//
-//        when(mockRepository.findById((short) 1)).thenReturn(Optional.empty());
-//
-//        Exception e = assertThrows(IllegalArgumentException.class, () -> {
-//            actorService.patchActor((short) 1, patchInput);
-//        });
-//
-//        assertEquals("Actor not found.", e.getMessage());
-//        verify(mockRepository, times(1)).findById((short) 1);
-//    }
-
     @Test
     void actorServiceTestDeleteActor () {
         when(mockRepository.findById((short)1)).thenReturn(Optional.of(actor));
@@ -142,18 +112,5 @@ public class ActorServiceTests {
         verify(mockRepository, times(1)).findById((short)1);
         verify(mockRepository, times(1)).delete(actor);
     }
-
-//    @Test
-//    void testDeleteActorNotFound() {
-//        when(mockRepository.findById((short) 1)).thenReturn(Optional.empty());
-//
-//        Exception e = assertThrows(IllegalArgumentException.class, () -> {
-//            actorService.deleteActor((short) 1);
-//        });
-//
-//        assertEquals("Actor not found.", e.getMessage());
-//        verify(mockRepository, times(1)).findById((short) 1);
-//    }
-
 
 }
